@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ffa3e19b60f9596bcbfb81d3c6d50b4",
+    "content-hash": "2ca91d7cf6331ee421e6c6c8b7b8c62d",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -189,6 +189,48 @@
                 "source": "https://github.com/axolotl-pm/BedrockProtocol/tree/bedrock-1.26.50"
             },
             "time": "2026-08-19T04:28:27+00:00"
+        },
+        {
+            "name": "axolotl-pm/xoroshiro128pp",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/axolotl-pm/Xoroshiro128PP.git",
+                "reference": "02e3fb6bbfa53e0025c08b08e5e83b092cdef3eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/axolotl-pm/Xoroshiro128PP/zipball/02e3fb6bbfa53e0025c08b08e5e83b092cdef3eb",
+                "reference": "02e3fb6bbfa53e0025c08b08e5e83b092cdef3eb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gmp": "*",
+                "php": "^8.1",
+                "php-64bit": "*"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "2.2.8",
+                "phpstan/phpstan-phpunit": "^2.0.0",
+                "phpstan/phpstan-strict-rules": "^2.0.0",
+                "phpunit/phpunit": "^10.5.24"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "pocketmine\\xoroshiro128pp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "description": "Xoroshiro128++ random number generator for PocketMine-MP",
+            "support": {
+                "issues": "https://github.com/axolotl-pm/Xoroshiro128PP/issues",
+                "source": "https://github.com/axolotl-pm/Xoroshiro128PP/tree/0.1.0"
+            },
+            "time": "2026-08-25T14:15:14+00:00"
         },
         {
             "name": "brick/math",
