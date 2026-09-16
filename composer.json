@@ -1,5 +1,5 @@
 {
-   "name": "axolotl-pm/pocketmine-mp",
+   "name": "cosmicmc-pmmp/pocketmine-mp",
    "description": "A server software for Minecraft: Bedrock Edition written in PHP",
    "type": "project",
    "homepage": "https://pmmp.io",
@@ -33,10 +33,10 @@
       "ext-zlib": ">=1.2.11",
       "composer-runtime-api": "^2.0",
       "adhocore/json-comment": "~1.2.0",
-      "axolotl-pm/bedrock-block-upgrade-schema": "dev-bedrock-1.26.50",
-      "axolotl-pm/bedrock-data": "dev-bedrock-1.26.50",
-      "axolotl-pm/bedrock-item-upgrade-schema": "dev-bedrock-1.26.50",
-      "axolotl-pm/bedrock-protocol": "dev-bedrock-1.26.50",
+      "cosmicmc-pmmp/bedrock-block-upgrade-schema": "dev-bedrock-1.26.50",
+      "cosmicmc-pmmp/bedrock-data": "dev-bedrock-1.26.50",
+      "cosmicmc-pmmp/bedrock-item-upgrade-schema": "dev-bedrock-1.26.50",
+      "cosmicmc-pmmp/bedrock-protocol": "dev-bedrock-1.26.50",
       "axolotl-pm/xoroshiro128pp": "^0.1.0",
       "netresearch/jsonmapper": "~v6.0.0",
       "pocketmine/binaryutils": "^0.2.1",
@@ -52,6 +52,12 @@
       "ramsey/uuid": "~4.9.0",
       "symfony/filesystem": "~6.4.0"
    },
+   "repositories": [
+      { "type": "path", "url": "../BedrockProtocol" },
+      { "type": "path", "url": "../BedrockData" },
+      { "type": "path", "url": "../BedrockBlockUpgradeSchema" },
+      { "type": "path", "url": "../BedrockItemUpgradeSchema" }
+   ],
    "require-dev": {
       "phpstan/phpstan": "2.1.46",
       "phpstan/phpstan-phpunit": "^2.0.0",
