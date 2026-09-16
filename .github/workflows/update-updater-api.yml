@@ -12,6 +12,9 @@ on:
 
 jobs:
   build:
+    # Disabled: this depends on a CosmicMC-PMMP/update.axolotl-pm.org-equivalent repo which doesn't exist yet.
+    # Re-enable once CosmicMC has its own update API repo and UPDATE_API_DEPLOY_KEY secret.
+    if: false
     runs-on: ubuntu-latest
     concurrency: update-updater-api # only one job can run at a time, to avoid git conflicts when updating the repository
 
