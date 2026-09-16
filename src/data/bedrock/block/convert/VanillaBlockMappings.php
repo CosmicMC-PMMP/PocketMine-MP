@@ -80,6 +80,7 @@ use pocketmine\block\RedstoneTorch;
 use pocketmine\block\RespawnAnchor;
 use pocketmine\block\Sapling;
 use pocketmine\block\SeaPickle;
+use pocketmine\block\ShelfMushroom;
 use pocketmine\block\SmallDripleaf;
 use pocketmine\block\SnowLayer;
 use pocketmine\block\Sponge;
@@ -149,6 +150,7 @@ final class VanillaBlockMappings{
 		self::registerStoneLikeSlabMappings($reg);
 		self::registerStoneLikeStairMappings($reg);
 		self::registerStoneLikeWallMappings($reg, $commonProperties);
+		self::registerColoredSlabAndStairMappings($reg);
 
 		self::registerWoodMappings($reg, $commonProperties);
 		self::registerTorchMappings($reg, $commonProperties);
@@ -421,6 +423,7 @@ final class VanillaBlockMappings{
 		$reg->mapSimple(Blocks::RED_NETHER_BRICKS(), Ids::RED_NETHER_BRICK);
 		$reg->mapSimple(Blocks::RED_SAND(), Ids::RED_SAND);
 		$reg->mapSimple(Blocks::RED_SANDSTONE(), Ids::RED_SANDSTONE);
+		$reg->mapSimple(Blocks::RED_SHRUB(), Ids::RED_SHRUB);
 		$reg->mapSimple(Blocks::REINFORCED_DEEPSLATE(), Ids::REINFORCED_DEEPSLATE);
 		$reg->mapSimple(Blocks::RESERVED6(), Ids::RESERVED6);
 		$reg->mapSimple(Blocks::RESIN(), Ids::RESIN_BLOCK);
@@ -1020,6 +1023,82 @@ final class VanillaBlockMappings{
 		}
 	}
 
+	private static function registerColoredSlabAndStairMappings(BlockSerializerDeserializerRegistrar $reg) : void{
+		foreach([
+			[Blocks::WHITE_WOOL_SLAB(), "white_wool"],
+			[Blocks::WHITE_CONCRETE_SLAB(), "white_concrete"],
+			[Blocks::ORANGE_WOOL_SLAB(), "orange_wool"],
+			[Blocks::ORANGE_CONCRETE_SLAB(), "orange_concrete"],
+			[Blocks::MAGENTA_WOOL_SLAB(), "magenta_wool"],
+			[Blocks::MAGENTA_CONCRETE_SLAB(), "magenta_concrete"],
+			[Blocks::LIGHT_BLUE_WOOL_SLAB(), "light_blue_wool"],
+			[Blocks::LIGHT_BLUE_CONCRETE_SLAB(), "light_blue_concrete"],
+			[Blocks::YELLOW_WOOL_SLAB(), "yellow_wool"],
+			[Blocks::YELLOW_CONCRETE_SLAB(), "yellow_concrete"],
+			[Blocks::LIME_WOOL_SLAB(), "lime_wool"],
+			[Blocks::LIME_CONCRETE_SLAB(), "lime_concrete"],
+			[Blocks::PINK_WOOL_SLAB(), "pink_wool"],
+			[Blocks::PINK_CONCRETE_SLAB(), "pink_concrete"],
+			[Blocks::GRAY_WOOL_SLAB(), "gray_wool"],
+			[Blocks::GRAY_CONCRETE_SLAB(), "gray_concrete"],
+			[Blocks::LIGHT_GRAY_WOOL_SLAB(), "light_gray_wool"],
+			[Blocks::LIGHT_GRAY_CONCRETE_SLAB(), "light_gray_concrete"],
+			[Blocks::CYAN_WOOL_SLAB(), "cyan_wool"],
+			[Blocks::CYAN_CONCRETE_SLAB(), "cyan_concrete"],
+			[Blocks::PURPLE_WOOL_SLAB(), "purple_wool"],
+			[Blocks::PURPLE_CONCRETE_SLAB(), "purple_concrete"],
+			[Blocks::BLUE_WOOL_SLAB(), "blue_wool"],
+			[Blocks::BLUE_CONCRETE_SLAB(), "blue_concrete"],
+			[Blocks::BROWN_WOOL_SLAB(), "brown_wool"],
+			[Blocks::BROWN_CONCRETE_SLAB(), "brown_concrete"],
+			[Blocks::GREEN_WOOL_SLAB(), "green_wool"],
+			[Blocks::GREEN_CONCRETE_SLAB(), "green_concrete"],
+			[Blocks::RED_WOOL_SLAB(), "red_wool"],
+			[Blocks::RED_CONCRETE_SLAB(), "red_concrete"],
+			[Blocks::BLACK_WOOL_SLAB(), "black_wool"],
+			[Blocks::BLACK_CONCRETE_SLAB(), "black_concrete"],
+		] as [$block, $type]){
+			$reg->mapSlab($block, $type);
+		}
+
+		foreach([
+			[Blocks::WHITE_WOOL_STAIRS(), Ids::WHITE_WOOL_STAIRS],
+			[Blocks::WHITE_CONCRETE_STAIRS(), Ids::WHITE_CONCRETE_STAIRS],
+			[Blocks::ORANGE_WOOL_STAIRS(), Ids::ORANGE_WOOL_STAIRS],
+			[Blocks::ORANGE_CONCRETE_STAIRS(), Ids::ORANGE_CONCRETE_STAIRS],
+			[Blocks::MAGENTA_WOOL_STAIRS(), Ids::MAGENTA_WOOL_STAIRS],
+			[Blocks::MAGENTA_CONCRETE_STAIRS(), Ids::MAGENTA_CONCRETE_STAIRS],
+			[Blocks::LIGHT_BLUE_WOOL_STAIRS(), Ids::LIGHT_BLUE_WOOL_STAIRS],
+			[Blocks::LIGHT_BLUE_CONCRETE_STAIRS(), Ids::LIGHT_BLUE_CONCRETE_STAIRS],
+			[Blocks::YELLOW_WOOL_STAIRS(), Ids::YELLOW_WOOL_STAIRS],
+			[Blocks::YELLOW_CONCRETE_STAIRS(), Ids::YELLOW_CONCRETE_STAIRS],
+			[Blocks::LIME_WOOL_STAIRS(), Ids::LIME_WOOL_STAIRS],
+			[Blocks::LIME_CONCRETE_STAIRS(), Ids::LIME_CONCRETE_STAIRS],
+			[Blocks::PINK_WOOL_STAIRS(), Ids::PINK_WOOL_STAIRS],
+			[Blocks::PINK_CONCRETE_STAIRS(), Ids::PINK_CONCRETE_STAIRS],
+			[Blocks::GRAY_WOOL_STAIRS(), Ids::GRAY_WOOL_STAIRS],
+			[Blocks::GRAY_CONCRETE_STAIRS(), Ids::GRAY_CONCRETE_STAIRS],
+			[Blocks::LIGHT_GRAY_WOOL_STAIRS(), Ids::LIGHT_GRAY_WOOL_STAIRS],
+			[Blocks::LIGHT_GRAY_CONCRETE_STAIRS(), Ids::LIGHT_GRAY_CONCRETE_STAIRS],
+			[Blocks::CYAN_WOOL_STAIRS(), Ids::CYAN_WOOL_STAIRS],
+			[Blocks::CYAN_CONCRETE_STAIRS(), Ids::CYAN_CONCRETE_STAIRS],
+			[Blocks::PURPLE_WOOL_STAIRS(), Ids::PURPLE_WOOL_STAIRS],
+			[Blocks::PURPLE_CONCRETE_STAIRS(), Ids::PURPLE_CONCRETE_STAIRS],
+			[Blocks::BLUE_WOOL_STAIRS(), Ids::BLUE_WOOL_STAIRS],
+			[Blocks::BLUE_CONCRETE_STAIRS(), Ids::BLUE_CONCRETE_STAIRS],
+			[Blocks::BROWN_WOOL_STAIRS(), Ids::BROWN_WOOL_STAIRS],
+			[Blocks::BROWN_CONCRETE_STAIRS(), Ids::BROWN_CONCRETE_STAIRS],
+			[Blocks::GREEN_WOOL_STAIRS(), Ids::GREEN_WOOL_STAIRS],
+			[Blocks::GREEN_CONCRETE_STAIRS(), Ids::GREEN_CONCRETE_STAIRS],
+			[Blocks::RED_WOOL_STAIRS(), Ids::RED_WOOL_STAIRS],
+			[Blocks::RED_CONCRETE_STAIRS(), Ids::RED_CONCRETE_STAIRS],
+			[Blocks::BLACK_WOOL_STAIRS(), Ids::BLACK_WOOL_STAIRS],
+			[Blocks::BLACK_CONCRETE_STAIRS(), Ids::BLACK_CONCRETE_STAIRS],
+		] as [$block, $id]){
+			$reg->mapStairs($block, $id);
+		}
+	}
+
 	private static function registerWoodMappings(BlockSerializerDeserializerRegistrar $reg, CommonProperties $commonProperties) : void{
 		//buttons
 		foreach([
@@ -1489,6 +1568,10 @@ final class VanillaBlockMappings{
 		$reg->mapModel(Model::create(Blocks::SEA_PICKLE(), Ids::SEA_PICKLE)->properties([
 			new IntProperty(StateNames::CLUSTER_COUNT, 0, 3, fn(SeaPickle $b) => $b->getCount(), fn(SeaPickle $b, int $v) => $b->setCount($v), offset: 1),
 			new BoolProperty(StateNames::DEAD_BIT, fn(SeaPickle $b) => $b->isUnderwater(), fn(SeaPickle $b, bool $v) => $b->setUnderwater($v), inverted: true)
+		]));
+		$reg->mapModel(Model::create(Blocks::SHELF_MUSHROOM(), Ids::SHELF_MUSHROOM)->properties([
+			new IntProperty(StateNames::GROWTH, 0, 1, fn(ShelfMushroom $b) => $b->isGrown() ? 1 : 0, fn(ShelfMushroom $b, int $v) => $b->setGrown($v !== 0)),
+			$commonProperties->horizontalFacingCardinal
 		]));
 		$reg->mapModel(Model::create(Blocks::SMALL_DRIPLEAF(), Ids::SMALL_DRIPLEAF_BLOCK)->properties([
 			new BoolProperty(StateNames::UPPER_BLOCK_BIT, fn(SmallDripleaf $b) => $b->isTop(), fn(SmallDripleaf $b, bool $v) => $b->setTop($v)),

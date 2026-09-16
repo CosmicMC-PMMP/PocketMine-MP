@@ -53,10 +53,10 @@
       "symfony/filesystem": "~6.4.0"
    },
    "repositories": [
-      { "type": "path", "url": "../BedrockProtocol" },
-      { "type": "path", "url": "../BedrockData" },
-      { "type": "path", "url": "../BedrockBlockUpgradeSchema" },
-      { "type": "path", "url": "../BedrockItemUpgradeSchema" }
+      { "type": "path", "url": "../BedrockProtocol", "options": { "symlink": false } },
+      { "type": "path", "url": "../BedrockData", "options": { "symlink": false } },
+      { "type": "path", "url": "../BedrockBlockUpgradeSchema", "options": { "symlink": false } },
+      { "type": "path", "url": "../BedrockItemUpgradeSchema", "options": { "symlink": false } }
    ],
    "require-dev": {
       "phpstan/phpstan": "2.1.46",

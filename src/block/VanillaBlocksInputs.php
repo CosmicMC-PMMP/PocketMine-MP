@@ -60,6 +60,7 @@ use pocketmine\block\tile\Sign as TileSign;
 use pocketmine\block\tile\Smoker as TileSmoker;
 use pocketmine\block\tile\Tile;
 use pocketmine\block\utils\AmethystTrait;
+use pocketmine\block\utils\DyeColor;
 use pocketmine\block\utils\LeavesType;
 use pocketmine\block\utils\SaplingType;
 use pocketmine\block\utils\WoodType;
@@ -673,6 +674,10 @@ final class VanillaBlocksInputs extends RegistrySource{
 		self::registerOres();
 		self::registerWoodenBlocks();
 		self::registerCauldronBlocks();
+		self::registerColoredSlabsAndStairs();
+
+		self::register("red_shrub", fn(BID $id) => new Flower($id, "Red Shrub", new Info(BreakInfo::instant())));
+		self::register("shelf_mushroom", fn(BID $id) => new ShelfMushroom($id, "Shelf Mushroom", new Info(BreakInfo::instant())));
 	}
 
 	/**
@@ -760,6 +765,30 @@ final class VanillaBlocksInputs extends RegistrySource{
 		self::register("bamboo_mosaic", fn(BID $id) => new Planks($id, "Bamboo Mosaic", $mosaicBreakInfo, WoodType::BAMBOO));
 		self::register("bamboo_mosaic_slab", fn(BID $id) => new WoodenSlab($id, "Bamboo Mosaic", $mosaicBreakInfo, WoodType::BAMBOO));
 		self::register("bamboo_mosaic_stairs", fn(BID $id) => new WoodenStairs($id, "Bamboo Mosaic Stairs", $mosaicBreakInfo, WoodType::BAMBOO));
+	}
+
+	private function registerColoredSlabsAndStairs() : void{
+		$woolBreakInfo = fn() => new Info(new class(0.8, ToolType::SHEARS, 0, 0.8) extends BreakInfo{
+			public function getBreakTime(Item $item) : float{
+				$time = parent::getBreakTime($item);
+				if($item->getBlockToolType() === ToolType::SHEARS){
+					$time *= 3; //shears break compatible blocks 15x faster, but wool 5x
+				}
+
+				return $time;
+			}
+		});
+		$concreteBreakInfo = fn() => new Info(BreakInfo::pickaxe(1.8, ToolTier::WOOD, round(0.36, 5) * 5)); //vanilla blast resistance 0.36 doesn't survive *5 as a clean 1.8 float
+
+		foreach(DyeColor::cases() as $color){
+			$name = $color->getDisplayName();
+			$idName = fn(string $suffix) => strtolower($color->name) . "_" . $suffix;
+
+			self::register($idName("wool_slab"), fn(BID $id) => new Slab($id, $name . " Wool", $woolBreakInfo()));
+			self::register($idName("wool_stairs"), fn(BID $id) => new Stair($id, $name . " Wool Stairs", $woolBreakInfo()));
+			self::register($idName("concrete_slab"), fn(BID $id) => new Slab($id, $name . " Concrete", $concreteBreakInfo()));
+			self::register($idName("concrete_stairs"), fn(BID $id) => new Stair($id, $name . " Concrete Stairs", $concreteBreakInfo()));
+		}
 	}
 
 	private function registerMushroomBlocks() : void{
