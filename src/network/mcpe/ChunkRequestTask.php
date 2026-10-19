@@ -86,7 +86,7 @@ class ChunkRequestTask extends AsyncTask{
 		)]);
 
 		$compressor = $this->compressor->deserialize();
-		$this->setResult(chr($compressor->getNetworkId()) . $compressor->compress($stream->getData()));
+		$this->setResult(chr($compressor->getNetworkType()->value) . $compressor->compress($stream->getData()));
 	}
 
 	public function onCompletion() : void{
