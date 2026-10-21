@@ -33,7 +33,6 @@ use pocketmine\event\block\BlockBurnEvent;
 use pocketmine\math\Facing;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\World;
-use function in_array;
 use function intdiv;
 use function max;
 use function min;
@@ -48,35 +47,27 @@ class Fire extends BaseFire implements Ageable, HorizontalConnectable{
 
 	/** @var int[] facing => facing */
 	protected array $connections = [];
+	protected bool $connectedUp = false;
 
 	protected function describeBlockOnlyState(RuntimeDataDescriber $w) : void{
 		$w->boundedIntAuto(0, self::MAX_AGE, $this->age);
-		foreach(self::CONNECTION_FACES as $facing){
-			$connected = isset($this->connections[$facing]);
-			$w->bool($connected);
-			$this->setConnectedAt($facing, $connected);
-		}
+		$w->horizontalFacingFlags($this->connections);
+		//Fire only has east, west, south, north, up connections (no down connection)
+		$w->bool($this->connectedUp);
 	}
 
 	protected function getFireDamage() : int{
 		return 1;
 	}
 
-	/**
-	 * @param int $facing one of Facing::UP/NORTH/EAST/SOUTH/WEST
-	 */
 	public function isConnectedAt(int $facing) : bool{
-		return isset($this->connections[$facing]);
+		return isset($this->connections[$facing]) || ($facing === Facing::UP && $this->connectedUp);
 	}
 
-	/**
-	 * @param int $facing one of Facing::UP/NORTH/EAST/SOUTH/WEST
-	 */
 	public function setConnectedAt(int $facing, bool $connected) : void{
-		if(!in_array($facing, self::CONNECTION_FACES, true)){
-			throw new \InvalidArgumentException("Fire can only connect upwards or horizontally");
-		}
-		if($connected){
+		if($facing === Facing::UP){
+			$this->connectedUp = $connected;
+		}elseif($connected){
 			$this->connections[$facing] = $facing;
 		}else{
 			unset($this->connections[$facing]);
@@ -88,12 +79,9 @@ class Fire extends BaseFire implements Ageable, HorizontalConnectable{
 	}
 
 	private function recalculateConnections() : bool{
-		$down = $this->getSide(Facing::DOWN);
-		$floating = !$down->isFlammable() && !$this->canBeSupportedBy($down);
-
 		$changed = false;
 		foreach(self::CONNECTION_FACES as $facing){
-			$connected = $floating && $this->getSide($facing)->isFlammable();
+			$connected = $this->getSide($facing)->isFlammable();
 			if($connected !== $this->isConnectedAt($facing)){
 				$this->setConnectedAt($facing, $connected);
 				$changed = true;

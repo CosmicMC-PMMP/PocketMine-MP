@@ -97,12 +97,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/axolotl-pm/BedrockData.git",
-                "reference": "5f3cd976c61e171876c93419478fbcd9e46894dc"
+                "reference": "b3a7e2fb98f74130f288603ae43a45906f71363c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/axolotl-pm/BedrockData/zipball/5f3cd976c61e171876c93419478fbcd9e46894dc",
-                "reference": "5f3cd976c61e171876c93419478fbcd9e46894dc",
+                "url": "https://api.github.com/repos/axolotl-pm/BedrockData/zipball/b3a7e2fb98f74130f288603ae43a45906f71363c",
+                "reference": "b3a7e2fb98f74130f288603ae43a45906f71363c",
                 "shasum": ""
             },
             "type": "library",
@@ -115,7 +115,7 @@
                 "issues": "https://github.com/axolotl-pm/BedrockData/issues",
                 "source": "https://github.com/axolotl-pm/BedrockData/tree/bedrock-1.26.60"
             },
-            "time": "2026-10-01T03:47:40+00:00"
+            "time": "2026-10-20T06:41:45+00:00"
         },
         {
             "name": "axolotl-pm/bedrock-item-upgrade-schema",
