@@ -97,12 +97,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/axolotl-pm/BedrockData.git",
-                "reference": "b3a7e2fb98f74130f288603ae43a45906f71363c"
+                "reference": "d2ae8ec12fc3bf3b5ad2a95e91e2deb4668f3f90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/axolotl-pm/BedrockData/zipball/b3a7e2fb98f74130f288603ae43a45906f71363c",
-                "reference": "b3a7e2fb98f74130f288603ae43a45906f71363c",
+                "url": "https://api.github.com/repos/axolotl-pm/BedrockData/zipball/d2ae8ec12fc3bf3b5ad2a95e91e2deb4668f3f90",
+                "reference": "d2ae8ec12fc3bf3b5ad2a95e91e2deb4668f3f90",
                 "shasum": ""
             },
             "type": "library",
@@ -115,7 +115,7 @@
                 "issues": "https://github.com/axolotl-pm/BedrockData/issues",
                 "source": "https://github.com/axolotl-pm/BedrockData/tree/bedrock-1.26.60"
             },
-            "time": "2026-10-20T06:41:45+00:00"
+            "time": "2026-10-25T00:05:12+00:00"
         },
         {
             "name": "axolotl-pm/bedrock-item-upgrade-schema",
@@ -149,12 +149,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/axolotl-pm/BedrockProtocol.git",
-                "reference": "dc65c31d99547a43c45b67bc74f53086a4d8994c"
+                "reference": "bed7911d02783ce0bb7cc1ca1bfa4dc622db9a20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/axolotl-pm/BedrockProtocol/zipball/dc65c31d99547a43c45b67bc74f53086a4d8994c",
-                "reference": "dc65c31d99547a43c45b67bc74f53086a4d8994c",
+                "url": "https://api.github.com/repos/axolotl-pm/BedrockProtocol/zipball/bed7911d02783ce0bb7cc1ca1bfa4dc622db9a20",
+                "reference": "bed7911d02783ce0bb7cc1ca1bfa4dc622db9a20",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
                 "issues": "https://github.com/axolotl-pm/BedrockProtocol/issues",
                 "source": "https://github.com/axolotl-pm/BedrockProtocol/tree/bedrock-1.26.60"
             },
-            "time": "2026-10-19T01:43:01+00:00"
+            "time": "2026-10-25T00:12:53+00:00"
         },
         {
             "name": "axolotl-pm/nethernet",
