@@ -82,7 +82,7 @@ class ChunkRequestTask extends AsyncTask{
 			false,
 			[],
 			$payload,
-			false //TODO: BDS analysis shows this only sets to true when a chunk biomes were updated by Scripting API
+			false //vanilla only sets this when the chunk's biomes were changed by the Script API
 		)]);
 
 		$compressor = $this->compressor->deserialize();
