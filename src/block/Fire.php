@@ -60,11 +60,21 @@ class Fire extends BaseFire implements Ageable, HorizontalConnectable{
 		return 1;
 	}
 
+	/**
+	 * @param int $facing any of Facing::ALL except DOWN
+	 */
 	public function isConnectedAt(int $facing) : bool{
 		return isset($this->connections[$facing]) || ($facing === Facing::UP && $this->connectedUp);
 	}
 
+	/**
+	 * @param int $facing any of Facing::ALL except DOWN
+	 */
 	public function setConnectedAt(int $facing, bool $connected) : void{
+		Facing::validate($facing);
+		if($facing === Facing::DOWN){
+			throw new \InvalidArgumentException("DOWN is not a valid facing for this block");
+		}
 		if($facing === Facing::UP){
 			$this->connectedUp = $connected;
 		}elseif($connected){
@@ -188,9 +198,7 @@ class Fire extends BaseFire implements Ageable, HorizontalConnectable{
 				if($world->getBlock($block->position)->isSameState($block)){
 					$spreadedFire = false;
 					if(mt_rand(0, $this->age + 9) < 5){ //TODO: check rain
-						$fire = clone $this;
-						$fire->age = min(self::MAX_AGE, $fire->age + (mt_rand(0, 4) >> 2));
-						$spreadedFire = $this->spreadBlock($block, $fire);
+						$spreadedFire = $this->spreadBlock($block, $this->createSpreadState());
 					}
 					if(!$spreadedFire){
 						$world->setBlock($block->position, VanillaBlocks::AIR());
@@ -249,13 +257,20 @@ class Fire extends BaseFire implements Ageable, HorizontalConnectable{
 					//TODO: max chance is lowered by half in humid biomes
 
 					if($maxChance > 0 && mt_rand(0, $randomBound - 1) <= $maxChance){
-						$new = clone $this;
-						$new->age = min(self::MAX_AGE, $this->age + (mt_rand(0, 4) >> 2));
-						$this->spreadBlock($block, $new);
+						$this->spreadBlock($block, $this->createSpreadState());
 					}
 				}
 			}
 		}
+	}
+
+	private function createSpreadState() : Fire{
+		$fire = clone $this;
+		$fire->age = min(self::MAX_AGE, $this->age + (mt_rand(0, 4) >> 2));
+		//connections depend on the position, so they are recalculated once the fire is placed
+		$fire->connections = [];
+		$fire->connectedUp = false;
+		return $fire;
 	}
 
 	private function spreadBlock(Block $block, Block $newState) : bool{

@@ -23,8 +23,8 @@ declare(strict_types=1);
 
 namespace pocketmine\block\utils;
 
-enum RedstoneWireConnectionType : int{
-	case NONE = 0;
-	case SIDE = 1;
-	case UP = 2;
+enum RedstoneWireConnectionType{
+	case NONE;
+	case SIDE;
+	case UP;
 }
