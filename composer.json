@@ -54,10 +54,10 @@
       "symfony/filesystem": "~6.4.0"
    },
    "repositories": [
-      { "type": "path", "url": "../BedrockProtocol" },
-      { "type": "path", "url": "../BedrockData" },
-      { "type": "path", "url": "../BedrockBlockUpgradeSchema" },
-      { "type": "path", "url": "../BedrockItemUpgradeSchema" }
+      { "type": "vcs", "url": "https://github.com/CosmicMC-PMMP/BedrockProtocol.git" },
+      { "type": "vcs", "url": "https://github.com/CosmicMC-PMMP/BedrockData.git" },
+      { "type": "vcs", "url": "https://github.com/CosmicMC-PMMP/BedrockBlockUpgradeSchema.git" },
+      { "type": "vcs", "url": "https://github.com/CosmicMC-PMMP/BedrockItemUpgradeSchema.git" }
    ],
    "require-dev": {
       "phpstan/phpstan": "2.1.46",
