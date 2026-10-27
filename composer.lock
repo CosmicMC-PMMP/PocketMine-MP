@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f113dc05c5ed83c93ad804e3ca0e025",
+    "content-hash": "a2936718204b7d2a814fc9558c5ae7f2",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -119,16 +119,16 @@
         },
         {
             "name": "axolotl-pm/bedrock-item-upgrade-schema",
-            "version": "1.19.0",
+            "version": "dev-bedrock-1.26.60",
             "source": {
                 "type": "git",
                 "url": "https://github.com/axolotl-pm/BedrockItemUpgradeSchema.git",
-                "reference": "6ace6bbf1d67832cbae32f6e67bd15e1fc87af22"
+                "reference": "b699395a71621a848c5e48c736b6cccbdd4f6357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/axolotl-pm/BedrockItemUpgradeSchema/zipball/6ace6bbf1d67832cbae32f6e67bd15e1fc87af22",
-                "reference": "6ace6bbf1d67832cbae32f6e67bd15e1fc87af22",
+                "url": "https://api.github.com/repos/axolotl-pm/BedrockItemUpgradeSchema/zipball/b699395a71621a848c5e48c736b6cccbdd4f6357",
+                "reference": "b699395a71621a848c5e48c736b6cccbdd4f6357",
                 "shasum": ""
             },
             "type": "library",
@@ -139,9 +139,9 @@
             "description": "JSON schemas for upgrading items found in older Minecraft: Bedrock world saves",
             "support": {
                 "issues": "https://github.com/axolotl-pm/BedrockItemUpgradeSchema/issues",
-                "source": "https://github.com/axolotl-pm/BedrockItemUpgradeSchema/tree/1.19.0"
+                "source": "https://github.com/axolotl-pm/BedrockItemUpgradeSchema/tree/bedrock-1.26.60"
             },
-            "time": "2026-09-17T18:43:14+00:00"
+            "time": "2026-10-01T02:09:09+00:00"
         },
         {
             "name": "axolotl-pm/bedrock-protocol",
@@ -2866,6 +2866,7 @@
     "stability-flags": {
         "axolotl-pm/bedrock-block-upgrade-schema": 20,
         "axolotl-pm/bedrock-data": 20,
+        "axolotl-pm/bedrock-item-upgrade-schema": 20,
         "axolotl-pm/bedrock-protocol": 20
     },
     "prefer-stable": false,
