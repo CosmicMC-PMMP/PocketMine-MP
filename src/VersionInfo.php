@@ -32,7 +32,7 @@ use function str_repeat;
 final class VersionInfo{
 	public const NAME = "CosmicMC";
 	public const BASE_VERSION = "5.48.1";
-	public const IS_DEVELOPMENT_BUILD = true;
+	public const IS_DEVELOPMENT_BUILD = false;
 	public const BUILD_CHANNEL = "stable";
 	public const GITHUB_URL = "https://github.com/CosmicMC-PMMP/PocketMine-MP";
 
